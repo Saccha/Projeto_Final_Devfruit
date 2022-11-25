@@ -1,0 +1,90 @@
+ <div class="row" style="margin-top: 30px;">
+            <div class="col-md-4">  
+                {{ render_field(form.name, class="form-control") }}
+                {{ render_field(form.cpf, class="form-control") }}
+                {{ render_field(form.contact, class="form-control") }}
+                {{ render_field(form.email, class="form-control") }}
+                {{ render_field(form.password, class="form-control") }}
+                {{ render_field(form.confirm, class="form-control") }}
+                <!--{{ form.profile()}}-->
+            </div>
+                <div class="col-md-4">
+                {{ render_field(form.state, class="form-control") }}
+                {{ render_field(form.city, class="form-control") }}
+                {{ render_field(form.address, class="form-control") }}
+                {{ render_field(form.cep, class="form-control") }}
+                {{ form.submit(class="btn btn-sm btn-success float-right") }}
+
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+
+{% extends 'layouts.html' %}
+{% include "navbar.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/cadastro.css')}}">
+<div class="container">
+<div class="cadastro">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <h1>Deixe seu Feedback</h1>
+            
+                <div class="form-group">
+                    Nome completo:
+
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+
+                   <div class="form-group">
+                    Digite seu e-mail:
+
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-outline">
+                    
+                    Escreva seu feedback:
+                    {% if form.feedback.errors %}
+                        {{ form.feedback(class="form-control form-control-sm is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.feedback.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.feedback(class="form-control form-control-sm") }}
+                    {% endif %}
+                </div>
+            
+                <div class="botaoconfirmar">
+                {{ form.submit(classs="btn btn-outline-info") }}
+                </small>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+{% endblock content %}
