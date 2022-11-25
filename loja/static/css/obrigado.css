@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#footer{
+  display:flex-end;
+  position: relative;
+  bottom:-330px;
+  padding: 32px;
+  border-top: 0.4px solid #8f8f8f;
+}
+#voltar{
+  display:flex-end;
+  position: relative;
+  bottom:-250px;
+  padding: 10px;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #2d6519;
+  border: 1px solid #2d6519;
+  border-radius: 6px;
+}
+
+#checkmark{
+  color: #2d6519;
+}

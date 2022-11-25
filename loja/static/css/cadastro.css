@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    justify-content: center;
+    border: solid 1px #929f4744;
+    margin-top: 70px;
+    align-items: center;
+    padding: 120px;
+    background-color: #929f472a;
+    border-radius:8px;
+    box-shadow: 0px 2px 3px #555;
+}
+
+.cadastro{
+    display: flex;
+    color: #2d6519;
+}
+
+h1{ 
+    display: flex;
+    position: fixed;
+    top: 240px;
+    color:#2d6519;
+}
+
+.alert{
+    display: flex;
+    position: fixed;
+    top: 130px;
+    color:red;
+    font-size:10px;
+}
+

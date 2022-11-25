@@ -1,0 +1,55 @@
+nav{
+    background-color: #1C4D18; 
+}
+
+#brand{
+    color: #fef5da; 
+    text-decoration-line: none;
+    font-family: 'Brush Script MT', cursive;
+    display: flex;
+    position: relative;
+    left: -1100px;
+}
+#navlink{
+    color: #fef5dabc; 
+    text-decoration-line: none;
+    font-family: 'Hepta Slab', Helvetica, Arial;
+}
+#navlink:hover{
+    color: #ffffff; 
+}
+
+#navbarDropdown{
+    color: #fef5dabc; 
+    text-decoration-line: none;
+    font-family: 'Hepta Slab', Helvetica, Arial;
+}
+
+#navbarDropdown:hover{
+    color: #ffffff; 
+}
+
+#navbar1{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#barradepesquisa{
+    position: relative;
+    left: -500px;
+    padding-right:130px;
+}
+#pesquisar{
+    position: relative;
+    left: -500px;
+}
+
+#navbar2{
+    display: flex;
+}
+
+#ulnavbar{
+    position: relative;
+    right: -800px;
+}

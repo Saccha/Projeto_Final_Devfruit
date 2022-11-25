@@ -1,0 +1,78 @@
+{% extends 'layoutsAdmin.html' %}
+
+{% block content %}
+
+{% include '_messages.html' %}
+<div class="containter">
+
+{% include 'navbarAdmin.html' %}
+<div class="container" style="margin-top: 15px; margin-bottom: 15px;">
+  
+
+      <div class="containter mt-2">
+        <table class="table table-sm table-striped">
+            <thead>
+                <th>Serial</th>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Peso</th>
+                <th>Desconto</th>
+                <th>Marca</th>
+                <th>Imagem</th>
+                <th>Editar</th>
+                <th>Remover</th>
+            </thead>
+    
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{produto.name}}</td>
+                    <td>{{produto.price}}</td>
+                    <td>{{produto.weight}}</td>
+                    <td>{{produto.discount}}%</td>
+                    <td>{{produto.marca.name}}</td>
+                    <td><img src="{{url_for('static',filename='images/'+produto.image)}}" width="50" height="40"></td> 
+                    <td><a href="{{url_for('updateproduto', id=produto.id)}}" class="btn btn-primary btn-sm"btn>Editar</a></td>
+                    <td>
+                      <form action="{{url_for('deleteproduto', id= produto.id)}}" method="POST">
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{produto.id}}">Remover</button>
+                      </form>
+                    </td>
+                </tr>
+               
+    
+    
+    <!-- Modal -->
+        <div class="modal fade" id="exampleModal{{produto.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{produto.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p class="text-danger">Deseja realmente remover este produto? {{produto.name}}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">Cancelar</button>
+                <form action="{{url_for('deleteproduto', id= produto.id)}}" method="POST">
+                  <button type="submit" class="btn btn-danger">Remover</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+                {% endfor %}
+    </tbody>
+    
+  </table>
+
+
+  </div>
+
+</div>
+
+{% endblock content %}

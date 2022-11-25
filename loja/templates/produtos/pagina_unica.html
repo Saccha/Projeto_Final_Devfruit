@@ -1,0 +1,41 @@
+{% extends "layouts.html" %}
+
+{% block content %}
+{% include "navbar.html" %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6" id="marca_image">
+            <img src="{{url_for('static',filename='images/'+ produto.image)}}" alt="{{produto.name}}" height="400">
+        </div>
+
+
+            <div class="col-md-6">
+                <h4> Nome Produto:{{produto.name}}</h4>
+                <br>
+                <p>Preço: R${{produto.price}}</p>
+                {% if produto.discount >0 %}
+                <b>Desconto:{{produto.discount}}% = R${{(produto.price|float * (produto.discount/100|float)) }} </b>
+                {% endif %}
+                <br>
+                <hr>
+                <p>Descrição: {{produto.description}}</p>
+                <hr>
+                <form action="{{url_for('AddCart')}}" method="POST">
+                    <input type="hidden" name="produto_id" value="{{produto.id}}">
+                    <button type="submit" class="btn btn-sm btn-warning">Adicionar ao carrinho</button>
+                    <label for=""> Quantidade: </label>
+                    <input type="number" name="quantity" id="" value="1" min="1" max="{{produto.stock}}">
+                    
+                </form>
+
+                
+            </div>
+        
+
+    </div>
+
+</div>
+
+{% endblock content %}
